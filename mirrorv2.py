@@ -1,7 +1,7 @@
 from telethon.sync import TelegramClient, events
 from telethon import utils 
 import logging
-import sys
+import os
 import asyncio
 
 
@@ -43,11 +43,11 @@ def gorev_emrini_oku(dosya_adi="ayarlar.txt"):
 AYARLAR = gorev_emrini_oku()
 
 
-API_ID = int(AYARLAR['API_ID'])
-API_HASH = AYARLAR['API_HASH']
-SESSION_NAME = AYARLAR['SESSION_NAME']
-KAYNAK_KANAL_ID = int(AYARLAR['KAYNAK_KANAL_ID'])
-HEDEF_KANAL_ID = int(AYARLAR['HEDEF_KANAL_ID'])
+API_ID = int(os.environ.get('API_ID'))
+API_HASH = os.environ.get('API_HASH')
+SESSION_NAME = os.environ.get('SESSION_NAME')
+KAYNAK_KANAL_ID = int(os.environ.get('KAYNAK_KANAL_ID'))
+HEDEF_KANAL_ID = int(os.environ.get('HEDEF_KANAL_ID'))
 
 
 client = TelegramClient(SESSION_NAME, API_ID, API_HASH)
@@ -93,4 +93,5 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
+
         logging.info("Operasyon manuel olarak sonlandırıldı.")
