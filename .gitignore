@@ -1,0 +1,21 @@
+# ==================================
+# GHOST FORWARDER SECURITY PROTOCOL
+# ==================================
+
+# 1. Sensitive Intelligence Files
+# The session file is the account's master key. NEVER share it.
+*.session
+
+# The settings file contains secret API keys for local testing.
+ayarlar.txt
+
+# 2. Python & System Junk Files
+# Ignore Python's temporary cache directory.
+__pycache__/
+
+# Ignore compiled Python files (older versions).
+*.pyc
+
+# 3. IDE/Editor specific files
+# Ignore Visual Studio Code settings directory.
+.vscode/
