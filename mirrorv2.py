@@ -76,14 +76,22 @@ async def handler(event):
     except Exception as e:
         logging.error(f"HATA: {e}")
 
+#async def main():
+ #   logging.info("MirrorV2 operasyonu başlatılıyor...")
+  #  await client.start()
+   # logging.info("Bağlantı başarılı. Nöbetçi birlik devrede.")
+    #await client.run_until_disconnected()
 async def main():
-    logging.info("Hayalet İletici (Son Kan) operasyonu başlatılıyor...")
-    await client.start()
-    logging.info("Bağlantı başarılı. Nöbetçi birlik devrede.")
+    logging.info("MirrorV2 operasyonu başlatılıyor...")
+    BOT_TOKEN = os.environ.get('BOT_TOKEN')
+    await client.start(bot_token=BOT_TOKEN)
+    logging.info("Bağlantı başarılı. Otonom drone devrede.")
     await client.run_until_disconnected()
+
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except (KeyboardInterrupt, SystemExit):
         logging.info("Operasyon manuel olarak sonlandırıldı.")
+
