@@ -78,7 +78,7 @@ async def handler(event):
       #      reply_to=sent_message.id,
        #     parse_mode="md",         
        #     link_preview=True
-        )
+       # )
 
     except Exception as e:
         logging.error(f"HATA: {e}")
@@ -95,3 +95,4 @@ if __name__ == "__main__":
     except (KeyboardInterrupt, SystemExit):
 
         logging.info("Operasyon manuel olarak sonlandırıldı.")
+
